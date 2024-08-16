@@ -1,23 +1,37 @@
+
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mi Proyecto{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 </head>
 <body>
     <nav>
         <!-- Menú de navegación -->
-        <a href="{% url 'login' %}">Login</a>
+        <!-- <a href="{% url 'login' %}">Login</a>
         <a href="{% url 'registro' %}">Registro</a>
 
         <a href="{% url 'logout' %}">Log Out</a>
 
         <a href="{% url 'curso_list' %}">Lista</a>
         <a href="{% url 'curso_create' %}">Crear Curso</a>
-   
+        <li><a href="{% url 'about_me' %}">Acerca de Mí</a></li> -->
 
-
+        <ul class="menu-horizontal">
+            <li><a href="{% url 'home' %}">Inicio</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'logout' %}">Log Out</a></li>
+                <li><a href="{% url 'curso_list' %}">Lista de Cursos</a></li>
+                <li><a href="{% url 'curso_create' %}">Crear Curso</a></li>
+            {% else %}
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'registro' %}">Registro</a></li>
+            {% endif %}
+            <li><a href="{% url 'about_me' %}">Acerca de Mí</a></li>
+        </ul>
     </nav>
     
     {% block content %}

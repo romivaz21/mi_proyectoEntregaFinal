@@ -82,3 +82,10 @@ def curso_delete(request, pk):
         curso.delete()
         return redirect('curso_list')
     return render(request, 'cursos/curso_confirm_delete.html', {'curso': curso})
+
+
+
+from django.shortcuts import render
+
+def about_me_view(request):
+    return render(request, 'usuarios/about_me.html')
