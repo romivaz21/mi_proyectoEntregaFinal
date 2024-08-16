@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mi Proyecto{% endblock %}</title>
+</head>
+<body>
+    <nav>
+        <!-- Menú de navegación -->
+        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'registro' %}">Registro</a>
+
+        <a href="{% url 'logout' %}">Log Out</a>
+
+        <a href="{% url 'curso_list' %}">Lista</a>
+        <a href="{% url 'curso_create' %}">Crear Curso</a>
+   
+
+
+    </nav>
+    
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

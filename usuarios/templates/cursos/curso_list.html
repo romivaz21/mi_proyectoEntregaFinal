@@ -1,0 +1,14 @@
+{% extends 'usuarios/base.html' %}
+
+{% block content %}
+<h2>Lista de Cursos</h2>
+<a href="{% url 'curso_create' %}">Crear nuevo curso</a>
+<ul>
+    {% for curso in cursos %}
+    <li>{{ curso.nombre }} ({{ curso.codigo }}) - {{ curso.fecha }}
+        <a href="{% url 'curso_update' curso.pk %}">Editar</a>
+        <a href="{% url 'curso_delete' curso.pk %}">Eliminar</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
